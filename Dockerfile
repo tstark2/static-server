@@ -1,7 +1,8 @@
 FROM golang:alpine
-COPY . /go
+COPY . /static-server
+WORKDIR /static-server
 RUN go build -o static-server-spa
 
 FROM alpine:latest
-COPY --from=0 /go/static-server-spa static-server-spa
+COPY --from=0 /static-server/static-server-spa static-server-spa
 ENTRYPOINT [ "./static-server-spa" ]
