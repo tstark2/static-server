@@ -1,6 +1,6 @@
 build:
   rules:
-    - if: '$CI_COMMIT_BRANCH == spa'
+    - if: '$CI_COMMIT_BRANCH =~ /^spa/'
   image: docker:19.03.12
   stage: build
   services:
