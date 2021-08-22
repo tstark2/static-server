@@ -1,7 +1,5 @@
 FROM alpine:latest
 
-RUN apk update
+COPY static-server-spa static-server-spa
 
-COPY static-server static-server
-
-ENTRYPOINT [ "./static-server" ]
+ENTRYPOINT [ "./static-server-spa" ]
