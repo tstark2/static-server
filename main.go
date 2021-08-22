@@ -6,10 +6,6 @@ import (
 )
 
 func main() {
-	fileServer()
-}
-
-func fileServer() {
 	fileServer := http.FileServer(http.Dir("/static"))
 	fileMatcher := regexp.MustCompile(`\.[a-zA-Z]*$`)
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
